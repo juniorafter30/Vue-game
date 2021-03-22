@@ -9,6 +9,8 @@ const app = Vue.createApp({
       monsterHealth: 100,
       currentRound: 0,
       winner: null,
+      barBackgroudPlayer: "green",
+      barBackgroudMonster: "green",
     };
   },
   watch: {
@@ -52,11 +54,31 @@ const app = Vue.createApp({
   },
 
   methods: {
+    barColorMonster() {
+      if (this.monsterHealth <= 40) {
+        return (this.barBackgroudMonster = "orange");
+      } else if (this.monsterHealth < 30) {
+        return (this.barBackgroundMonster = "red");
+      } else {
+        return (this.barBackgroudPlayer = "green");
+      }
+    },
+    barColorPlayer() {
+      if (this.playerHealth <= 40) {
+        this.barBackgroudPlayer = "orange";
+      } else if (this.playerHealth <= 30) {
+        this.barBackgroundPlayer = "red";
+      } else {
+        return (this.barBackgroudPlayer = "green");
+      }
+    },
     startNewGame() {
       this.playerHealth = 100;
       this.monsterHealth = 100;
       this.winner = null;
       this.currentRound = 0;
+      this.barBackgroudPlayer = "green";
+      this.barBackgroudMonster = "green";
     },
     draw() {
       if (monsterHealth < 0) {
@@ -68,6 +90,8 @@ const app = Vue.createApp({
       }
     },
     attackMonster() {
+      this.barColorMonster();
+      this.barColorPlayer();
       this.currentRound++;
       const attackValue = getRandomValue(12, 5);
       this.monsterHealth -= attackValue;
@@ -78,6 +102,7 @@ const app = Vue.createApp({
       this.playerHealth -= attackValue;
     },
     healPlayer() {
+      this.barColorPlayer();
       this.currentRound++;
       const healthValue = getRandomValue(8, 20);
 
@@ -93,6 +118,11 @@ const app = Vue.createApp({
       const attackValue = getRandomValue(10, 25);
       this.monsterHealth -= attackValue;
       this.attackPlayer();
+      this.barColorMonster();
+      this.barColorPlayer();
+    },
+    surrender() {
+      this.winner = "monster";
     },
   },
 });

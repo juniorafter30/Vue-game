@@ -8,14 +8,19 @@ html {
 
 body {
   margin: 0;
+  background: url(/devilk.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0.5rem;
-  background-color: #880017;
+  background: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: center;
+  text-transform: uppercase;
   margin-bottom: 2rem;
 }
 
@@ -23,6 +28,8 @@ section {
   width: 90%;
   max-width: 40rem;
   margin: auto;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 .healthbar {
@@ -30,7 +37,7 @@ section {
   height: 40px;
   border: 1px solid #575757;
   margin: 1rem 0;
-  background: #fde5e5;
+  background: #e7d0d0;
 }
 
 .healthbar__value {
@@ -62,8 +69,8 @@ section {
 
 button {
   font: inherit;
-  border: 1px solid #e657b6;
-  background-color: #88005b;
+  border: 1px solid #ec2b45;
+  background-color: #962b34;
   color: white;
   padding: 1rem 2rem;
   border-radius: 12px;
@@ -116,4 +123,16 @@ button:disabled {
 
 .log--heal {
   color: green;
+}
+
+.orange {
+  background: rgb(197, 151, 65);
+}
+
+.red {
+  background: rgb(179, 54, 54);
+}
+
+.green {
+  background: rgb(55, 163, 55);
 }
