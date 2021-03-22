@@ -11,6 +11,7 @@ const app = Vue.createApp({
       winner: null,
       barBackgroudPlayer: "green",
       barBackgroudMonster: "green",
+      logMessages: [],
     };
   },
   watch: {
@@ -79,6 +80,7 @@ const app = Vue.createApp({
       this.currentRound = 0;
       this.barBackgroudPlayer = "green";
       this.barBackgroudMonster = "green";
+      this.logMessages = [];
     },
     draw() {
       if (monsterHealth < 0) {
@@ -95,11 +97,13 @@ const app = Vue.createApp({
       this.currentRound++;
       const attackValue = getRandomValue(12, 5);
       this.monsterHealth -= attackValue;
+      this.addLogMessage("player", "attack", attackValue);
       this.attackPlayer();
     },
     attackPlayer() {
       const attackValue = getRandomValue(15, 6);
       this.playerHealth -= attackValue;
+      this.addLogMessage("monster", "attack", attackValue);
     },
     healPlayer() {
       this.barColorPlayer();
@@ -111,18 +115,28 @@ const app = Vue.createApp({
       } else {
         this.playerHealth += healthValue;
       }
+      this.addLogMessage("player", "heal", healthValue);
       this.attackPlayer();
     },
     specialAttackMonster() {
       this.currentRound++;
       const attackValue = getRandomValue(10, 25);
       this.monsterHealth -= attackValue;
+      this.addLogMessage("monster", "attack", attackValue);
+      this.addLogMessage("player", "attack", attackValue);
       this.attackPlayer();
       this.barColorMonster();
       this.barColorPlayer();
     },
     surrender() {
       this.winner = "monster";
+    },
+    addLogMessage(who, what, value) {
+      this.logMessages.unshift({
+        actionBy: who,
+        actionType: what,
+        actionValue: value,
+      });
     },
   },
 });

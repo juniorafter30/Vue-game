@@ -9,9 +9,8 @@ html {
 body {
   margin: 0;
   background: url(/devilk.jpg);
-  background-position: center;
+
   background-size: cover;
-  min-height: 100vh;
 }
 
 header {
