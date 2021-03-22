@@ -34,13 +34,19 @@ section {
 .healthbar {
   width: 100%;
   height: 40px;
-  border: 1px solid #575757;
+  border: none;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
   margin: 1rem 0;
-  background: #e7d0d0;
+  background: #db5555;
 }
 
 .healthbar__value {
   background-color: #00a876;
+  -moz-box-shadow: inset 0 0 10px #4b4848;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
   width: 100%;
   height: 100%;
 }
@@ -68,26 +74,33 @@ section {
 
 button {
   font: inherit;
-  border: 1px solid #ec2b45;
+  border: none;
   background-color: #962b34;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
   color: white;
   padding: 1rem 2rem;
   border-radius: 12px;
   margin: 1rem;
   width: 12rem;
   cursor: pointer;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
 
 button:focus {
   outline: none;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
 }
 
 button:hover,
 button:active {
   background-color: #af0a78;
   border-color: #af0a78;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
 }
 
 button:disabled {
