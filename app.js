@@ -49,6 +49,9 @@ const app = Vue.createApp({
     specialButton() {
       return this.currentRound % 3 !== 0;
     },
+    specialButtonHeal() {
+      return this.currentRound % 2 !== 0;
+    },
     healButton() {
       return this.currentRound % 3 !== 0;
     },

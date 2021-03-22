@@ -12,26 +12,24 @@
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2? family = Permanent + Marker & display = swap"
-      rel="arkusz stylów"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shojumaru&display=swap" rel="stylesheet"> 
   </head>
   <body>
     <header>
-      <h1>Dungeon Slasher</h1>
+      <h1>Shadow Slasher</h1>
     </header>
     <div id="game">
       <section id="monster" class="container">
-        <h2>Monster Health</h2>
+        <h2>Shadow Health</h2>
         <div class="healthbar">
-          <div :class="barBackgroudMonster" class="healthbar__value" :style="monsterBarStyle"></div>
+          <div :class="barBackgroudMonster" class="healthbar__value" :style="monsterBarStyle">{{monsterHealth}}</div>
         </div>
       </section>
       <section id="player" class="container">
         <h2>Player Health</h2>
         <div class="healthbar">
-          <div :class="barBackgroudPlayer" class="healthbar__value" :style="playerBarStyle"></div>
+          <div :class="barBackgroudPlayer" class="healthbar__value" :style="playerBarStyle"> {{playerHealth}}</div>
         </div> 
       </section>
       <section v-if="winner" class="container">
@@ -44,7 +42,7 @@
       <section v-if="!winner" id="controls">
         <button @click="attackMonster">ATTACK</button>
         <button :disabled="specialButton" @click="specialAttackMonster">SPECIAL ATTACK</button#>
-        <button @click="healPlayer">HEAL</button>
+        <button :disabled="specialButtonHeal" @click="healPlayer">HEAL</button>
         <button @click="surrender">SURRENDER</button>
       </section>
 
